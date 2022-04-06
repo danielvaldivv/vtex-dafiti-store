@@ -1,79 +1,161 @@
 {
-  "header": {
-    "blocks": ["header-layout.desktop", "header-layout.mobile"]
-  },
   "header.full": {
-    "blocks": ["header-layout.desktop", "header-layout.mobile"]
-  },
-  "header-layout.desktop": {
-    "children": [
-      "sticky-layout#desktop"
-    ]
-  },
-  "sticky-layout#desktop": {
-    "props": {
-      "blockClass": "sticky-header"
+      "blocks": ["header-layout.desktop" , "header-layout.mobile"]
     },
-    "children": ["flex-layout.row#desktop"]
-  },
-  "flex-layout.row#desktop": {
-    "props": {
-      "horizontalAlign": "center",
-      "verticalAlign": "center",
-      "preventHorizontalStretch": true,
-      "preventVerticalStretch": true,
-      "fullWidth": true
+
+    "header-layout.desktop": {
+      "children": [
+        "sticky-layout#desktop"
+      ]
     },
-    "children": [
-      "flex-layout.col#logo-desktop",
-      "flex-layout.col#spacer",
-      "search-bar",
-      "locale-switcher",
-      "login",
-      "minicart.v2"
-    ]
-  },
-  "flex-layout.col#spacer": {
-    "props": {
-      "width": "grow"
-    }
-  },
-  "flex-layout.col#logo-desktop": {
-    "props": {
-      "verticalAlign": "middle"
+
+    "sticky-layout#desktop": {
+      "props": {
+        "blockClass": "sticky-header"
+      },
+      "children": ["flex-layout.row#header-desktop"]
     },
-    "children": ["logo"]
-  },
-  "logo": {
-    "props": {
-      "title": "Logo",
-      "href": "/",
-      "url": "https://brand.vtex.com/static/media/VTEX_pink_RGB.751a9fb5.svg",
-      "width": "80"
+
+    "flex-layout.row#header-desktop":{
+      "children": [ "flex-layout.col#header-desktop"]
+    },
+
+    "flex-layout.col#header-desktop":{
+      "props":{
+        "fullWidth": true
+      },
+      "children": [
+        "notification.bar",
+        "flex-layout.row#desktop",
+        "vtex.menu@2.x:menu#websites"
+      ]
+    },
+
+    "notification.bar":{
+      "props":{
+        "content":"SELECTED ITEMS ON SALE! CHECK IT OUT!"
+      }
+    },
+
+    "flex-layout.row#desktop": {
+      "props": {
+        "blockClass": "header-desktop-flex",
+        "horizontalAlign": "center",
+        "preventHorizontalStretch": true,
+        "preventVerticalStretch": true,
+        "fullWidth": true,
+        "marginTop": "20",
+        "marginBottom": "10",
+        "maxWidth": "960"
+      },
+      "children": [
+        "flex-layout.col#logo-desktop",
+        "search-bar",
+        "flex-layout.col#login-cart-desktop"
+      ]
+    },
+
+    "flex-layout.col#logo-desktop": {
+      "props": {
+        "verticalAlign": "middle",
+        "horizontalAlign": "center",
+        "paddingRight": 10
+      },
+      "children": ["logo"]
+    },
+    "search-bar":{
+      "props": {
+        "width": 425,
+        "placeholder": "Busca por producto, marca, categoria..."
+      }
+    },
+
+    "flex-layout.col#login-cart-desktop": {
+      "props": {
+        "verticalAlign": "middle",
+        "horizontalAlign": "center",
+        "paddingLeft": 10
+      },
+      "children":["flex-layout.row#login-cart"]
+    },
+
+    "flex-layout.row#login-cart":{
+      "props":{
+        "marginTop": 3,
+        "horizontalAlign": "right"
+      },
+      "children": [
+        "login",
+        "minicart.v2"
+      ]
+      
+    },
+
+    "logo": {
+      "props": {
+        "title": "Dafiti-Logo",
+        "href": "/",
+        "url": "https://static.dafiti.com.co/images/dafiti-logo.png",
+        "width": "125",
+        "height": "43"
+      }
+    },
+
+    "vtex.menu@2.x:menu#websites": {
+      "children": [
+        "menu-item#shop",
+        "menu-item#about-us"
+      ]
+    },
+    "menu-item#shop": {
+      "props": {
+        "id": "menu-item-shop",
+        "type": "custom",
+        "highlight": false,
+        "itemProps": {
+          "type": "internal",
+          "href": "#",
+          "noFollow": false,
+          "tagTitle": "Shop",
+          "text": "Shop"
+        },
+        "iconProps": {
+          "id": "bnd-logo",
+          "size": 16,
+          "viewBox": "0 0 16 16",
+          "activeClassName": "rebel-pink",
+          "mutedClassName": "c-action-primary"
+        },
+        "iconToTheRight": true
+      }
+    },
+
+    "header-layout.mobile": {
+      "children": ["sticky-layout#mobile"]
+    },
+    "sticky-layout#mobile": {
+      "children": ["flex-layout.row#mobile"]
+    },
+    "flex-layout.row#mobile": {
+      "children": [
+        "drawer",
+        "logo",
+        "login",
+        "minicart.v2"
+      ],
+      "props": {
+        "blockClass": "main-header-mobile",
+        "horizontalAlign": "center",
+        "verticalAlign": "center",
+        "preventHorizontalStretch": true,
+        "preventVerticalStretch": true,
+        "fullWidth": true,
+        "marginTop": "20",
+        "marginBottom": "10",
+        "maxWidth": "960"
+      }
+    },
+    "drawer": {
+      "children": []
     }
-  },
-  "header-layout.mobile": {
-    "children": ["sticky-layout#mobile"]
-  },
-  "sticky-layout#mobile": {
-    "children": ["flex-layout.row#mobile"]
-  },
-  "flex-layout.row#mobile": {
-    "children": [
-      "drawer",
-      "logo",
-      "flex-layout.col#spacer",
-      "login",
-      "minicart.v2"
-    ],
-    "props": {
-      "blockClass": "main-header-mobile",
-      "preventHorizontalStretch": true,
-      "preserveLayoutOnMobile": true,
-      "fullWidth": true
-    }
-  },
-  "drawer": {
-    "children": []
-  }
 }

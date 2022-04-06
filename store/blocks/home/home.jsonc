@@ -1,7 +1,6 @@
 {
   "store.home": {
     "blocks": [
-
       "flex-layout.row#home__section--one"
     ]
   },

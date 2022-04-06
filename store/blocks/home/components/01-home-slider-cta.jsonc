@@ -1,17 +1,16 @@
 {
- "flex-layout.row#home__section--one":{
-   "children": [
-     "rich-text#home-section--one"
-   ],
-   "props": {
-     "blockClass": "home__section--one"
-   }
- },
- "rich-text#home-section--one":{
-   "props": {
-     "text": "My section text",
-     "blockClass": "section__one--title"
-
-   }
- }
+  "flex-layout.row#home__section--one":{
+    "children": [
+      "rich-text#home-section--one"
+    ],
+    "props": {
+      "blockClass": "home__section--one"
+    }
+  },
+  "rich-text#home-section--one":{
+    "props": {
+      "text": "My section text",
+      "blockClass": "section__one--title"
+    }
+  }
 }
